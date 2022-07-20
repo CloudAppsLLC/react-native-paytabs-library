@@ -28,7 +28,7 @@ class RNPaymentManager: NSObject {
                 PaymentManager.startCardPayment(on: rootViewController, configuration: configuration, delegate: self)
             }
         } catch let error {
-            reject("Error", error.localizedDescription, error)
+            // reject("Error", error.localizedDescription, error)
         }
     }
     
@@ -47,7 +47,7 @@ class RNPaymentManager: NSObject {
                 PaymentManager.startApplePayPayment(on: rootViewController, configuration: configuration, delegate: self)
             }
         } catch let error {
-            reject("Error", error.localizedDescription, error)
+            // reject("Error", error.localizedDescription, error)
         }
     }
     
@@ -66,7 +66,7 @@ class RNPaymentManager: NSObject {
                 PaymentManager.startAlternativePaymentMethod(on: rootViewController, configuration: configuration, delegate: self)
             }
         } catch let error {
-            reject("Error", error.localizedDescription, error)
+            // reject("Error", error.localizedDescription, error)
         }
     }
     
@@ -241,7 +241,7 @@ class RNPaymentManager: NSObject {
 extension RNPaymentManager: PaymentManagerDelegate {
     func paymentManager(didFinishTransaction transactionDetails: PaymentSDKTransactionDetails?, error: Error?) {
         if let error = error, let reject = reject {
-            reject("Error", error.localizedDescription, error)
+            // reject("Error", error.localizedDescription, error)
             self.reject = nil
             return
         }
@@ -254,7 +254,7 @@ extension RNPaymentManager: PaymentManagerDelegate {
                 self.resolve = nil
             } catch  {
                 if let reject = reject {
-                    reject("Error", error.localizedDescription, error)
+                    // reject("Error", error.localizedDescription, error)
                     self.reject = nil
                 }
             }
